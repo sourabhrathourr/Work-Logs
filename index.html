@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Logs</title>
+    <link rel="stylesheet" href="/styles.css"> 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+<body>
+
+    <aside id = "sidebar">
+ <div>
+
+    <a href="/index.html">
+        <div class="aside-buttons"> <i class="material-icons">home</i>
+            Home</div>
+    </a>
+
+    <a href="/demo.html">
+        <div class="aside-buttons"> <i class="material-icons">description</i>
+            Previous Logs</div>
+    </a>
+   
+    <a href="/demo.html">
+        <div class="aside-buttons"> <i class="material-icons">insert_chart</i>
+            Weekly Reports</div>
+    </a>
+    
+    <a href="/demo.html"> 
+        <div class="aside-buttons"> <i class="material-icons">stars</i>
+            Suggestions</div>
+    </a>
+
+ </div>
+ 
+
+    </aside>
+
+<section id="container">
+
+    <div>
+        <h1 id="title">Welcome to Worklogs,</h1>
+        <h2 id="description">Clock In and start working with more focus</h2>
+        <div id =clock >
+            <span class="time" id ="hour">00</span>
+            <span class="dots">:</span>
+            <span class="time" id = "minute">00</span>
+            <span class="dots">:</span>
+            <span class="time" id = "seconds">00</span>
+           
+           
+         </div>
+    
+    <div id="button-container">
+        <button class="button" id = "clockIn"> Clock In </button>
+        <button class="button" id = "clockOut"> Clock Out </button>
+        <button class="button" id = "takeBreak">Take a break</button>
+    
+    </div>
+
+    </div>
+</section>
+   
+     
+
+    <script src="/script.js"></script>
+</body>
+</html>
