@@ -46,6 +46,8 @@ function start(){
 
 
 
+
+
 function stop(){
 
 if(isRunning){
@@ -67,6 +69,7 @@ function reset(){
     }
 
 }
+
 
 
 function toggleBreak (){
@@ -92,4 +95,11 @@ takeBreak.addEventListener('click',toggleBreak)
 clockOut.addEventListener('click', reset)
 
 
-
+// small hack to run the timer even if the tab is inactive 
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      start();
+    } else {
+      start();
+    }
+  });
