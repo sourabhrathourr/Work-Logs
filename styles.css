@@ -26,9 +26,10 @@ body {
     
 }
 
-.time {
-    font-size: 72px;
-    font-weight: semibold;
+#timerDisplay {
+    font-size: 64px;
+    font-weight: bold;
+    color:#fafafa
     
 }
 
@@ -39,14 +40,11 @@ body {
 }
 
 #button-container{
-    margin-top:40px;
-    align-self: center;
+    margin-top:50px;
+    margin-left: -14px;
 }
 
-.dots{
-    font-size: 72px;
-    color:rgba(189, 189, 189, 0.506)
-}
+
 
 .button {
     height: 6vh;
@@ -70,10 +68,7 @@ body {
     color:white
 }
 
-#clock{
-  margin-left: 2vw;
 
-}
 
 #title{
     font-size: 56px;
@@ -122,4 +117,22 @@ a{
     text-decoration: none;
 }
 
- 
+ #logs{
+    font-size: 20px;
+    bottom: 10vh;
+    position: absolute;
+    color:#d1d1d1
+ }
+
+ .button2{
+    height: 3.5vh;
+    width:  5vw;
+    border-radius: 12px;
+    border:0px;
+    margin-left: 1vw;
+    align-self: center;
+    box-shadow: 0.5px 0.5px 4px 0.5px rgb(235, 90, 90);
+    background-color: #212124;
+    color:white
+ }
+

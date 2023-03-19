@@ -1,96 +1,112 @@
-let hour = document.getElementById('hour');
-let minute = document.getElementById('minute');
-let seconds = document.getElementById('seconds');
+let timerDisplay = document.getElementById('timerDisplay');
 let clockIn = document.getElementById('clockIn');
 let clockOut = document.getElementById('clockOut');
 let takeBreak = document.getElementById('takeBreak');
-let resumeWork = document.getElementById('resumeWork');
-
-let intervalId = null;
-let isRunning = false;
-let isOnBreak = false;
-
-function start(){
-
-    if(!isRunning){
-        isRunning = true;
-
-        intervalId = setInterval(function(){
-            seconds.innerHTML++;
-            if(seconds.innerHTML<10) {
-                seconds.innerHTML = '0'+ seconds.innerHTML
-            } 
-
-            if(seconds.innerHTML == 60){
-                seconds.innerHTML = '0' + 0;
-                minute.innerHTML++;
-                if(minute.innerHTML<10) {
-                    minute.innerHTML = '0'+ minute.innerHTML
-                }
-            }
-
-            if(minute.innerHTML == 60){
-                minute.innerHTML = '0' + 0;
-                hour.innerHTML++;
-                if(hour.innerHTML<10) {
-                    hour.innerHTML = '0'+ hour.innerHTML
-                }
-            }
-        },1000);
-        console.log(intervalId)
-
-    }
+let logs = document.getElementById('logs')
 
 
-    }
+let startTime, elapsedTime = 0;
+let timerInterval;
+let toggleBreak = false;
+let temp;
+let clearBtn = document.createElement('button')
+clearBtn.setAttribute('class','button2')
+let buttonText = document.createTextNode("Clear")
 
 
 
+function formatTime(time) {
+    // Format time in HH:MM:SS (time parameter would be in seconds) 
+    let hour = Math.floor(time / 3600).toString().padStart(2, '0');
+    let minute = Math.floor((time % 3600) / 60).toString().padStart(2, '0');
+    let seconds = Math.floor(time % 60).toString().padStart(2, '0');
 
-
-function stop(){
-
-if(isRunning){
-    isRunning = false;
-    clearInterval(intervalId);
-}
-
-}
-
-function reset(){
-
-
-    if(isRunning){
-        isRunning = false;
-        clearInterval(intervalId);
-        hour.innerHTML = '0' + 0;
-        minute.innerHTML = '0' + 0;
-        seconds.innerHTML = '0' + 0;
-    }
-
+    // return the time elapsed in this format 
+    return `${hour} : ${minute} : ${seconds}`;
 }
 
 
 
-function toggleBreak (){
-    
+function startTimer() {
+    if (!timerInterval) {
+        startTime = Date.now() - elapsedTime;
+        localStorage.setItem('startTime', startTime);
+        timerInterval = setInterval(function() {
+            elapsedTime = Date.now() - startTime;
+            timerDisplay.textContent = formatTime(elapsedTime / 1000);
+            localStorage.setItem('elapsedTime', elapsedTime);
+        }, 1000);
+        clockIn.disabled = true; // disable clock in button when timer is running
+    }
+} 
 
-    if(isOnBreak){
-        // On the break : Resume the work
-        isOnBreak = false ;
-        takeBreak.innerHTML= "Take a Break"
-        start();
+function stopTimer() {
+
+
+    if (timerInterval) {
+        temp = elapsedTime;
+        localStorage.setItem('temp' , temp)
+        console.log(`Your session lasted for ${formatTime(temp/1000)}`)
+        clearInterval(timerInterval);
+        elapsedTime = 0;
+        timerDisplay.textContent = formatTime(elapsedTime / 1000);
+        localStorage.removeItem('startTime');
+        localStorage.removeItem('elapsedTime');
+        timerInterval = null;
+        clockIn.disabled = false; // enable clock in button when timer is stopped
+
+        logs.innerHTML = `<span>Your session lasted for ${formatTime(temp/1000)}</span>`;
+
+        clearBtn.appendChild(buttonText);
+        logs.appendChild(clearBtn)
+
+
+    }
+}
+
+
+let savedStartTime = localStorage.getItem('startTime')
+let savedElapsedTime = localStorage.getItem('elapsedTime')
+
+if(savedStartTime && savedElapsedTime ){
+
+    startTime = parseInt(savedStartTime);
+
+    let timeDiff = Date.now() - startTime;
+
+    elapsedTime = timeDiff;
+    startTimer();
+
+
+}
+
+
+function pauseTimer() {
+
+    if(!toggleBreak){
+   
+        if (timerInterval) {
+            toggleBreak = true;
+            clearInterval(timerInterval);
+            localStorage.setItem('elapsedTime', elapsedTime);
+            timerInterval = null;
+            takeBreak.innerHTML = "Resume Work"
+            clockIn.disabled = false; // enable clock in button when timer is paused
+        }
     } else {
-          // Not on break: then initiate break
-          isOnBreak=true;
-          takeBreak.innerHTML= "Resume Work"
-          stop();
+        toggleBreak = false;
+        takeBreak.innerHTML = "Take a break";
+        startTimer();
     }
+
+ 
 }
 
 
-
-clockIn.addEventListener('click', start)
-takeBreak.addEventListener('click',toggleBreak)
-clockOut.addEventListener('click', reset)
+clockIn.addEventListener('click', startTimer);
+clockOut.addEventListener('click', stopTimer);
+takeBreak.addEventListener('click' , pauseTimer);
+clearBtn.addEventListener('click' , function(){
+    logs.innerHTML = ''
+})
 
