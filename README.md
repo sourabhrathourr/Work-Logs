@@ -3,4 +3,7 @@ It is a web-based tool for logging into your work sessions and improve your focu
 You can clock in to start your work session and clock out when the work is over.
 This will help you to stay away from distractions and have more productivity while working because it creates a conscious wall in your brain that you are working on a project.
 
+Latest Update: Timer runs even if the tab is closed or the site is reloaded.
+
+
 https://work-logs.netlify.app/
