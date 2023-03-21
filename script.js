@@ -55,7 +55,7 @@ function stopTimer() {
         timerInterval = null;
         clockIn.disabled = false; // enable clock in button when timer is stopped
 
-        logs.innerHTML = `<span>Your session lasted for - ${formatTime(temp/1000)}</span>`;
+        logs.innerHTML = `<span>Your session lasted for ${formatTime(temp/1000)}</span>`;
 
         clearBtn.appendChild(buttonText);
         logs.appendChild(clearBtn)
