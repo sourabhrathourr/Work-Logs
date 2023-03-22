@@ -1,138 +1,138 @@
-*{
-    margin: 0px;
-}
+    *{
+        margin: 0px;
+    }
 
-#sidebar{
-    background-color: #212124;
-    height : 100vh;
-    width: 20vw
-}
+    #sidebar{
+        background-color: #212124;
+        height : 100vh;
+        width: 20vw
+    }
 
-body {
-    display:flex;
-    flex-direction: row;
-    height:100%;
-    background-color: #161618;
-    color:white;
-    font-family: Inter;
-}
+    body {
+        display:flex;
+        flex-direction: row;
+        height:100%;
+        background-color: #161618;
+        color:white;
+        font-family: Inter;
+    }
 
-#container {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width:80vw;
-    
-}
+    #container {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        width:80vw;
+        
+    }
 
-#timerDisplay {
-    font-size: 64px;
-    font-weight: bold;
-    color:#fafafa
-    
-}
-
-
-.annotation{
-    font-size: 16px;
-    margin-top: -8px;
-}
-
-#button-container{
-    margin-top:50px;
-    margin-left: -14px;
-}
+    #timerDisplay {
+        font-size: 64px;
+        font-weight: bold;
+        color:#fafafa
+        
+    }
 
 
+    .annotation{
+        font-size: 16px;
+        margin-top: -8px;
+    }
 
-.button {
-    height: 6vh;
-    width:  8vw;
-    border-radius: 12px;
-    border:0px;
-    margin:8px;
-    box-shadow: 0.5px 0.5px 8px 0.5px rgb(93, 93, 93);
-    background-color: #212124;
-    color:white
-}
-
-.button:hover {
-    height: 6vh;
-    width:  8vw;
-    border-radius: 12px;
-    border:0px;
-    margin:8px;
-    box-shadow: 1px 1px 8px 0.5px rgb(255, 255, 255);
-    background-color: #212124;
-    color:white
-}
+    #button-container{
+        margin-top:50px;
+        margin-left: -14px;
+    }
 
 
 
-#title{
-    font-size: 56px;
-   position: fixed;
-   top:8vh;
-   margin-left: -20vw;
-}
+    .button {
+        height: 6vh;
+        width:  8vw;
+        border-radius: 12px;
+        border:0px;
+        margin:8px;
+        box-shadow: 0.5px 0.5px 8px 0.5px rgb(93, 93, 93);
+        background-color: #212124;
+        color:white
+    }
 
-#description{
+    .button:hover {
+        height: 6vh;
+        width:  8vw;
+        border-radius: 12px;
+        border:0px;
+        margin:8px;
+        box-shadow: 1px 1px 8px 0.5px rgb(255, 255, 255);
+        background-color: #212124;
+        color:white
+    }
+
+
+
+    #title{
+        font-size: 56px;
     position: fixed;
-    top:20vh;
-    font-size: 20px;
-    font-weight: 250;
+    top:8vh;
     margin-left: -20vw;
-    color: #d1d1d1;
-}
+    }
 
-.aside-buttons{
-    margin-top: 24px;
-    font-size: 20px;
-    color:rgb(192, 192, 192);
-    font-weight: 400;
-    margin-left: 3.5vw;
-}
+    #description{
+        position: fixed;
+        top:20vh;
+        font-size: 20px;
+        font-weight: 250;
+        margin-left: -20vw;
+        color: #d1d1d1;
+    }
 
-.aside-buttons:hover{
-    color:white;
-}
+    .aside-buttons{
+        margin-top: 24px;
+        font-size: 20px;
+        color:rgb(192, 192, 192);
+        font-weight: 400;
+        margin-left: 3.5vw;
+    }
 
-aside{
-    display:flex ;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    border-right: 0.5px solid rgb(134, 134, 134);
-   
-  
-}
+    .aside-buttons:hover{
+        color:white;
+    }
 
-.material-icons {
-    font-size: 32px;
-    margin-right: 8px;
-}
+    aside{
+        display:flex ;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        border-right: 0.5px solid rgb(134, 134, 134);
+    
+    
+    }
 
-a{
-    text-decoration: none;
-}
+    .material-icons {
+        font-size: 32px;
+        margin-right: 8px;
+    }
 
- #logs{
-    font-size: 20px;
-    bottom: 10vh;
-    position: absolute;
-    color:#d1d1d1
- }
+    a{
+        text-decoration: none;
+    }
 
- .button2{
-    height: 3.5vh;
-    width:  5vw;
-    border-radius: 12px;
-    border:0px;
-    margin-left: 1vw;
-    align-self: center;
-    box-shadow: 0.5px 0.5px 4px 0.5px rgb(235, 90, 90);
-    background-color: #212124;
-    color:white
- }
+    #logs{
+        font-size: 20px;
+        bottom: 10vh;
+        position: absolute;
+        color:#d1d1d1
+    }
+
+    .button2{
+        height: 3.5vh;
+        width:  5vw;
+        border-radius: 12px;
+        border:0px;
+        margin-left: 1vw;
+        align-self: center;
+        box-shadow: 0.5px 0.5px 4px 0.5px rgb(235, 90, 90);
+        background-color: #212124;
+        color:white
+    }
 
